@@ -9,24 +9,26 @@
 </head>
 
 <body>
-
   <div class="container">
+    <h1>🏋️ FitTrack</h1>
 
-      <h1>🏋️ FitTrack</h1>
+    <h2>Add Workout</h2>
 
-      <p>Dockerized 3-Tier Fitness Application</p>
+    <input id="workoutName" placeholder="Workout Name">
 
-      <button id="checkBtn">
-          Check Backend Health
-      </button>
+    <input id="duration" type="number" placeholder="Duration (min)">
 
-       <pre id="output">
-Backend response will appear here...
-        </pre>
+    <input id="calories" type="number" placeholder="Calories Burned">
 
-    </div>
+    <button id="addBtn">Add Workout</button>
+
+    <hr>
+
+    <h2>Workouts</h2>
+
+    <div id="workoutList"></div>
+  </div>
 
 <script src="js/app.js"></script>
-
 </body>
 </html>
