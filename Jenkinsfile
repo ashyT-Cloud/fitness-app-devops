@@ -64,7 +64,6 @@ pipeline {
                 '''
             }
         }
-    }
 
         stage('Deploy') {
             steps {
@@ -74,6 +73,7 @@ pipeline {
                 '''
             }
         }
+    }
 
     post {
         always {
