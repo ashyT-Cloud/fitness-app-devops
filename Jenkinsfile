@@ -27,7 +27,7 @@ pipeline {
                 sh '''
                 docker build \
                   -t fittrack-backend:${BUILD_NUMBER} \
-                  ./app/backend'
+                  ./app/backend
                 '''
             }
         }
