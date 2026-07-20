@@ -24,13 +24,29 @@ pipeline {
 
         stage('Build Backend Image') {
             steps {
-                sh 'docker build -t fittrack-backend:v1 ./app/backend'
+                sh '''
+                docker build \
+                  -t fittrack-backend:${BUILD_NUMBER} \
+                  ./app/backend'
+                '''
+            }
+        }
+
+        stage('Build Frontend Image') {
+            steps {
+                sh '''
+                docker build \
+                  -t fittrack-frontend:${BUILD_NUMBER} \
+                  ./app/frontend
+                '''
             }
         }
 
         stage('Veryfy Images') {
             steps {
-                sh 'docker images | grep fittrack'
+                sh '''
+                docker images | grep fittrack
+                '''
             }
         }
 
