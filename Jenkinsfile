@@ -9,6 +9,19 @@ pipeline {
             }
         }
 
+        stage('Debug Environment') {
+            steps {
+                sh '''
+                    echo "===== DEBUG ====="
+                    echo "User: $(whoami)"
+                    echo "PATH: $PATH"
+                    which docker || true
+                    ls -l /usr/bin/docker || true
+                    /usr/bin/docker version || true
+                '''
+             }
+        }
+
         stage('Build Backend Image') {
             steps {
                 sh 'docker build -t fittrack-backend:v1 ./app/backend'
@@ -17,7 +30,7 @@ pipeline {
 
         stage('Veryfy Images') {
             steps {
-                sh 'dcoker images | grep fittrack'
+                sh 'docker images | grep fittrack'
             }
         }
 
