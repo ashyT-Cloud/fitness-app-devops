@@ -1,9 +1,7 @@
 services:
 
   backend:
-    build:
-      context: ./app/backend
-    image: fittrack-backend:v1
+    image: ashytcloud/fittrack-backend:latest
     container_name: fittrack-backend
 
     ports:
@@ -18,9 +16,7 @@ services:
     restart: unless-stopped
 
   frontend:
-    build:
-      context: ./app/frontend
-    image: fittrack-frontend:v1
+    image: ashytcloud/fittrack-frontend:latest
     container_name: fittrack-frontend
 
     ports:
