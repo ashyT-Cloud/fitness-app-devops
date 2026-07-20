@@ -48,7 +48,9 @@ pipeline {
         stage('Pish Backend') {
             steps {
                 sh '''
+                docker tag ${BACKEND_IMAGE}:${BUILD_NUMBER} ${BACKEND_IMAGE}:latest
                 docker push ${BACKEND_IMAGE}:${BUILD_NUMBER}
+                docker push ${BACKEND_IMAGE}:latest
                 '''
             }
         }
@@ -56,11 +58,22 @@ pipeline {
         stage('Push Frontend') {
             steps {
                 sh '''
+                docker tag ${FRONTEND_IMAGE}:${BUILD_NUMBER} ${FRONTEND_IMAGE}:latest
                 docker push ${FRONTEND_IMAGE}:${BUILD_NUMBER}
+                docker push ${FRONTEND_IMAGE}:latest
                 '''
             }
         }
     }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                docker compose pull
+                docker compose up -d
+                '''
+            }
+        }
 
     post {
         always {
