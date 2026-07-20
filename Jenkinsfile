@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_USER = "ashytcloud"
+        BACKEND_IMAGE = "ashytcloud/fittrack-backend"
+        FRONTEND_IMAGE = "ashytcloud/fittrack-frontend"
+    }
+
     stages {
 
         stage('Checkout') {
@@ -9,59 +15,64 @@ pipeline {
             }
         }
 
-        stage('Debug Environment') {
+        stage('Build Backend') {
             steps {
-                sh '''
-                    echo "===== DEBUG ====="
-                    echo "User: $(whoami)"
-                    echo "PATH: $PATH"
-                    which docker || true
-                    ls -l /usr/bin/docker || true
-                    /usr/bin/docker version || true
-                '''
-             }
+                sh """
+                docker build -t ${BACKEND_IMAGE}:${BUILD_NUMBER} ./app/backend
+                """
+            }
         }
 
-        stage('Build Backend Image') {
+        stage('Build Frontned') {
+            steps {
+                sh """
+                docker build -t ${FRONTEND_IMAGE}:${BUILD_NUMBER} ./app/frontend
+                """
+            }
+        }
+
+        stage('Docker Login') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'DOCKER_USERNAME',
+                    passwordVariable: 'DOCKER_PASSWORD'
+                )]) {
+                    sh '''
+                    echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+                    '''
+                }
+            }
+        }
+
+        stage('Pish Backend') {
             steps {
                 sh '''
-                docker build \
-                  -t fittrack-backend:${BUILD_NUMBER} \
-                  ./app/backend
+                docker push ${BACKEND_IMAGE}:${BUILD_NUMBER}
                 '''
             }
         }
 
-        stage('Build Frontend Image') {
+        stage('Push Frontend') {
             steps {
                 sh '''
-                docker build \
-                  -t fittrack-frontend:${BUILD_NUMBER} \
-                  ./app/frontend
+                docker push ${FRONTEND_IMAGE}:${BUILD_NUMBER}
                 '''
             }
         }
-
-        stage('Veryfy Images') {
-            steps {
-                sh '''
-                docker images | grep fittrack
-                '''
-            }
-        }
-
     }
 
     post {
         always {
-            echo 'Pipline Finished'
+            sh 'docker logout || true'
         }
 
         success {
-            echo 'Build Successful!'
+            echo 'Pipeline Successful'
         }
+
         failure {
-            echo 'Build Failed'
+            echo 'Pipeline Failed'
         }
     }
 }
