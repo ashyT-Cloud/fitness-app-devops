@@ -4,6 +4,9 @@ services:
     image: ashytcloud/fittrack-backend:latest
     container_name: fittrack-backend
 
+    depends_on:
+      - mongodb
+
     ports:
       - "${BACKEND_PORT}:3000"
 
