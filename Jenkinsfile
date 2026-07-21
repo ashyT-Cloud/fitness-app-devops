@@ -68,7 +68,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                cd /home/ubuntu/devops/fitness-app-devops
+                cd /opt/fittrack
 
                 git pull origin develop
 
