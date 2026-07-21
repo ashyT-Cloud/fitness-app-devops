@@ -68,10 +68,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                pwd
-                ls -la
-                docker compose ls
-                docker ps -a
+                cd /home/ubuntu/devops/fitness-app-devops
+
+                git pull origin develop
+
                 docker compose down --remove-orphans || true
                 docker compose pull
                 docker compose up -d --force-recreate
