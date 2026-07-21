@@ -68,6 +68,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
+                pwd
+                ls -la
+                docker compose ls
+                docker ps -a
                 docker compose down --remove-orphans || true
                 docker compose pull
                 docker compose up -d --force-recreate
