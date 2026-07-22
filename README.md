@@ -105,10 +105,40 @@ AWS EC2
 
 ---
 
-## 📸 Screenshots
+# 📸 Project Screenshots
 
-Screenshots will be available inside:
+## Architecture Diagram
 
+![Architecture](docs/screenshots/02-architecture-diagram.png)
+
+---
+
+## Jenkins CI/CD Pipeline
+
+The Jenkins pipeline automatically:
+
+- Checks out the latest source code
+- Builds backend & frontend Docker images
+- Pushes images to Docker Hub
+- Deploys the latest version on AWS EC2 using Docker Compose
+
+![Jenkins Pipeline](docs/screenshots/04-jenkins-pipeline.png)
+
+---
+
+## Running Application
+
+FitTrack application successfully deployed on AWS EC2.
+
+![Application](docs/screenshots/07-application-ui.png)
+
+---
+
+## Running Docker Containers
+
+Docker Compose managing the complete application stack.
+
+![Docker Containers](docs/screenshots/06-running-containers.png)
 ```
 docs/screenshots/
 ```
@@ -142,6 +172,32 @@ cp deploy/.env.example deploy/.env
 Update the values as required before deployment.
 
 In Jenkins, the production `.env` file is injected securely using Jenkins Credentials (Secret File).
+
+# 🚀 CI/CD Pipeline
+
+```text
+Developer
+    │
+Git Push
+    │
+GitHub Repository
+    │
+GitHub Webhook
+    │
+Jenkins Pipeline
+    │
+Build Docker Images
+    │
+Push Docker Images
+    │
+Docker Hub
+    │
+AWS EC2
+    │
+Docker Compose
+    │
+Frontend + Backend + MongoDB
+```
 
 ## 🚀 Future Improvements
 
