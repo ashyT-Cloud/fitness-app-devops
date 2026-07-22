@@ -45,7 +45,7 @@ pipeline {
             }
         }
 
-        stage('Pish Backend') {
+        stage('Push Backend') {
             steps {
                 sh '''
                 docker tag ${BACKEND_IMAGE}:${BUILD_NUMBER} ${BACKEND_IMAGE}:latest
@@ -68,13 +68,28 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
+                mkdir -p /opt/fittrack
+
+                # Clean previous deployment files
+                rm -rf /opt/fittrack/*
+
+                # Copy deployment configuration
+                cp deploy/docker-compose.yml /opt/fittrack/
+                cp deploy/.env /opt/fittrack/
+
+
                 cd /opt/fittrack
 
-                git pull origin develop
-
-                docker compose down --remove-orphans || true
+                # Pull latest images                               
                 docker compose pull
+
+                # Dtop previous deployment
+                docker compose down --remove-orphans || true
+
+                # Deploy latest containers
                 docker compose up -d --force-recreate
+
+                docker image prune -f || true
                 '''
             }
         }
