@@ -67,6 +67,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
+               withCredentials([file(credentialsId: 'fittrack-env', variable: 'ENV_FILE')]) {
                 sh '''
                 mkdir -p /opt/fittrack
 
@@ -75,7 +76,7 @@ pipeline {
 
                 # Copy deployment configuration
                 cp deploy/docker-compose.yml /opt/fittrack/
-                cp deploy/.env /opt/fittrack/
+                cp "$ENV_FILE" /opt/fittrack/
 
 
                 cd /opt/fittrack
@@ -91,6 +92,7 @@ pipeline {
 
                 docker image prune -f || true
                 '''
+               }
             }
         }
     }

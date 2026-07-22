@@ -131,6 +131,18 @@ During this project several real-world issues were encountered and resolved:
 
 ---
 
+## Environment Variables
+
+For local development:
+
+```bash
+cp deploy/.env.example deploy/.env
+```
+
+Update the values as required before deployment.
+
+In Jenkins, the production `.env` file is injected securely using Jenkins Credentials (Secret File).
+
 ## 🚀 Future Improvements
 
 - Kubernetes (AWS EKS)
