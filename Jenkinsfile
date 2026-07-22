@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_USER = "ashytcloud"
         BACKEND_IMAGE = "ashytcloud/fittrack-backend"
         FRONTEND_IMAGE = "ashytcloud/fittrack-frontend"
     }
@@ -23,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('Build Frontned') {
+        stage('Build Frontend') {
             steps {
                 sh """
                 docker build -t ${FRONTEND_IMAGE}:${BUILD_NUMBER} ./app/frontend
@@ -33,11 +32,13 @@ pipeline {
 
         stage('Docker Login') {
             steps {
-                withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'DOCKER_USERNAME',
-                    passwordVariable: 'DOCKER_PASSWORD'
-                )]) {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'dockerhub-creds',
+                        usernameVariable: 'DOCKER_USERNAME',
+                        passwordVariable: 'DOCKER_PASSWORD'
+                    )
+                ]) {
                     sh '''
                     echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
                     '''
@@ -67,37 +68,40 @@ pipeline {
 
         stage('Deploy') {
             steps {
-               withCredentials([file(credentialsId: 'fittrack-env', variable: 'ENV_FILE')]) {
-                sh '''
-                mkdir -p /opt/fittrack
+                withCredentials([
+                    file(
+                        credentialsId: 'fittrack-env',
+                        variable: 'ENV_FILE'
+                    )
+                ]) {
 
-                # Clean previous deployment files
-                rm -rf /opt/fittrack/*
+                    sh '''
+                    set -e
 
-                # Copy deployment configuration
-                cp deploy/docker-compose.yml /opt/fittrack/
-                cp "$ENV_FILE" /opt/fittrack/
+                    mkdir -p /opt/fittrack
 
+                    rm -rf /opt/fittrack/*
 
-                cd /opt/fittrack
+                    cp deploy/docker-compose.yml /opt/fittrack/
+                    cp "$ENV_FILE" /opt/fittrack/.env
 
-                # Pull latest images                               
-                docker compose pull
+                    cd /opt/fittrack
 
-                # Dtop previous deployment
-                docker compose down --remove-orphans || true
+                    docker compose down --remove-orphans || true
 
-                # Deploy latest containers
-                docker compose up -d --force-recreate
+                    docker compose pull
 
-                docker image prune -f || true
-                '''
-               }
+                    docker compose up -d --force-recreate
+
+                    docker image prune -f || true
+                    '''
+                }
             }
         }
     }
 
     post {
+
         always {
             sh 'docker logout || true'
         }
