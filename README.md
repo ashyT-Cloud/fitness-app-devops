@@ -1,11 +1,13 @@
 # 🚀 Dockerized 3-Tier Fitness Application with CI/CD on AWS
 
-![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-EC2-orange)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
 ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?logo=jenkins&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-232F3E?logo=amazonaws&logoColor=FF9900)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white)
 ![NodeJS](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white)
 ![Nginx](https://img.shields.io/badge/Nginx-009639?logo=nginx&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
