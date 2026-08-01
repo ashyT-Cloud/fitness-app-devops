@@ -1,0 +1,55 @@
+{
+    "Events": [
+        {
+            "EventId": "6dbaf4af-fadb-4682-9d79-1b2fc5f47520",
+            "EventName": "AssumeRoleWithWebIdentity",
+            "ReadOnly": "true",
+            "EventTime": "2026-08-01T10:56:15+00:00",
+            "EventSource": "sts.amazonaws.com",
+            "Username": "repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop",
+            "Resources": [],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop\",\"userName\":\"repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop\",\"identityProvider\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-08-01T10:56:15Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"172.184.174.114\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#6.17.0-1020-azure lang/js md/nodejs#24.18.0 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"errorCode\":\"AccessDenied\",\"errorMessage\":\"Not authorized to perform sts:AssumeRoleWithWebIdentity\",\"requestParameters\":null,\"responseElements\":null,\"requestID\":\"191220d8-8801-4ce7-b951-ed9203bc4ece\",\"eventID\":\"6dbaf4af-fadb-4682-9d79-1b2fc5f47520\",\"readOnly\":true,\"resources\":[{\"accountId\":\"487054650859\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::487054650859:role/production-eks-platform-dev-github-actions\"},{\"accountId\":\"487054650859\",\"type\":\"AWS::IAM::OIDCProvider\",\"ARN\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"487054650859\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.us-east-1.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+        },
+        {
+            "EventId": "e9fd4b4d-b702-4999-8281-4f538500183e",
+            "EventName": "AssumeRoleWithWebIdentity",
+            "ReadOnly": "true",
+            "EventTime": "2026-08-01T10:56:03+00:00",
+            "EventSource": "sts.amazonaws.com",
+            "Username": "repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop",
+            "Resources": [],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop\",\"userName\":\"repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop\",\"identityProvider\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-08-01T10:56:03Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"172.184.174.114\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#6.17.0-1020-azure lang/js md/nodejs#24.18.0 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"errorCode\":\"AccessDenied\",\"errorMessage\":\"Not authorized to perform sts:AssumeRoleWithWebIdentity\",\"requestParameters\":null,\"responseElements\":null,\"requestID\":\"c74b22d8-ec77-409c-98d6-ba15cff28069\",\"eventID\":\"e9fd4b4d-b702-4999-8281-4f538500183e\",\"readOnly\":true,\"resources\":[{\"accountId\":\"487054650859\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::487054650859:role/production-eks-platform-dev-github-actions\"},{\"accountId\":\"487054650859\",\"type\":\"AWS::IAM::OIDCProvider\",\"ARN\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"487054650859\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.us-east-1.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+        },
+        {
+            "EventId": "3a36334e-929d-4787-becf-ee3a5048565e",
+            "EventName": "AssumeRoleWithWebIdentity",
+            "ReadOnly": "true",
+            "EventTime": "2026-08-01T10:55:58+00:00",
+            "EventSource": "sts.amazonaws.com",
+            "Username": "repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop",
+            "Resources": [],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop\",\"userName\":\"repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop\",\"identityProvider\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-08-01T10:55:58Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"172.184.174.114\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#6.17.0-1020-azure lang/js md/nodejs#24.18.0 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"errorCode\":\"AccessDenied\",\"errorMessage\":\"Not authorized to perform sts:AssumeRoleWithWebIdentity\",\"requestParameters\":null,\"responseElements\":null,\"requestID\":\"0fdc4d1e-9957-4ac9-972c-1f4de81e0792\",\"eventID\":\"3a36334e-929d-4787-becf-ee3a5048565e\",\"readOnly\":true,\"resources\":[{\"accountId\":\"487054650859\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::487054650859:role/production-eks-platform-dev-github-actions\"},{\"accountId\":\"487054650859\",\"type\":\"AWS::IAM::OIDCProvider\",\"ARN\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"487054650859\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.us-east-1.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+        },
+        {
+            "EventId": "a431b07b-1c32-4cf7-8ca0-89939ef904a5",
+            "EventName": "AssumeRoleWithWebIdentity",
+            "ReadOnly": "true",
+            "EventTime": "2026-08-01T10:55:53+00:00",
+            "EventSource": "sts.amazonaws.com",
+            "Username": "repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop",
+            "Resources": [],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop\",\"userName\":\"repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop\",\"identityProvider\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-08-01T10:55:53Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"172.184.174.114\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#6.17.0-1020-azure lang/js md/nodejs#24.18.0 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"errorCode\":\"AccessDenied\",\"errorMessage\":\"Not authorized to perform sts:AssumeRoleWithWebIdentity\",\"requestParameters\":null,\"responseElements\":null,\"requestID\":\"af94fd04-f9d7-4d43-b86f-ebb8940e3056\",\"eventID\":\"a431b07b-1c32-4cf7-8ca0-89939ef904a5\",\"readOnly\":true,\"resources\":[{\"accountId\":\"487054650859\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::487054650859:role/production-eks-platform-dev-github-actions\"},{\"accountId\":\"487054650859\",\"type\":\"AWS::IAM::OIDCProvider\",\"ARN\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"487054650859\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.us-east-1.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+        },
+        {
+            "EventId": "8790feec-b4be-491b-af98-7c6169a5cce4",
+            "EventName": "AssumeRoleWithWebIdentity",
+            "ReadOnly": "true",
+            "EventTime": "2026-08-01T10:55:49+00:00",
+            "EventSource": "sts.amazonaws.com",
+            "Username": "repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop",
+            "Resources": [],
+            "CloudTrailEvent": "{\"eventVersion\":\"1.11\",\"userIdentity\":{\"type\":\"WebIdentityUser\",\"principalId\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com:sts.amazonaws.com:repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop\",\"userName\":\"repo:ashyT-Cloud@202896792/fitness-app-devops@1295135462:ref:refs/heads/develop\",\"identityProvider\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com\"},\"eventTime\":\"2026-08-01T10:55:49Z\",\"eventSource\":\"sts.amazonaws.com\",\"eventName\":\"AssumeRoleWithWebIdentity\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"172.184.174.114\",\"userAgent\":\"aws-sdk-js/3.859.0 ua/2.1 os/linux#6.17.0-1020-azure lang/js md/nodejs#24.18.0 api/sts#3.859.0 m/E configure-aws-credentials-for-github-actions\",\"errorCode\":\"AccessDenied\",\"errorMessage\":\"Not authorized to perform sts:AssumeRoleWithWebIdentity\",\"requestParameters\":null,\"responseElements\":null,\"requestID\":\"93297cd2-d930-4ad8-9c1f-ee9b1941798d\",\"eventID\":\"8790feec-b4be-491b-af98-7c6169a5cce4\",\"readOnly\":true,\"resources\":[{\"accountId\":\"487054650859\",\"type\":\"AWS::IAM::Role\",\"ARN\":\"arn:aws:iam::487054650859:role/production-eks-platform-dev-github-actions\"},{\"accountId\":\"487054650859\",\"type\":\"AWS::IAM::OIDCProvider\",\"ARN\":\"arn:aws:iam::487054650859:oidc-provider/token.actions.githubusercontent.com\"}],\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"487054650859\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.3\",\"cipherSuite\":\"TLS_AES_128_GCM_SHA256\",\"clientProvidedHostHeader\":\"sts.us-east-1.amazonaws.com\",\"keyExchange\":\"X25519MLKEM768\"}}"
+        }
+    ],
+    "NextToken": "6jV8mQwYMCOaPKDSx+yPQ+bFoQxWmD4OKLGgr2xYaAHohr/2Hbxx5/+Pu27OhrAx"
+}
