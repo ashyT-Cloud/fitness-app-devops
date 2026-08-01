@@ -31,13 +31,11 @@ jobs:
           echo "Repository: $GITHUB_REPOSITORY"
           echo "Ref: $GITHUB_REF"
           echo "Event: $GITHUB_EVENT_NAME"
-          
+
       - name: Show OIDC token claims
         uses: actions/github-script@v7
         with:
           script: |
-            const core = require('@actions/core');
-
             const token = await core.getIDToken('sts.amazonaws.com');
 
             const payload = JSON.parse(
