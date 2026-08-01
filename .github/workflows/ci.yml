@@ -32,9 +32,6 @@ jobs:
           echo "Ref: $GITHUB_REF"
           echo "Event: $GITHUB_EVENT_NAME"
 
-      - name: Debug OIDC Claims
-        uses: github/actions-oidc-debugger@v1
-      
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
