@@ -1,0 +1,65 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+  workflow_dispatch:
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_REGION: ${{ vars.AWS_REGION }}
+  AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
+  ECR_BACKEND_REPOSITORY: ${{ vars.ECR_BACKEND_REPOSITORY }}
+  ECR_FRONTEND_REPOSITORY: ${{ vars.ECR_FRONTEND_REPOSITORY }}
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Set Image Tag
+        run: |
+          echo "IMAGE_TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
+      - name: Build Backend Image
+        run: |
+          docker build \
+            -t ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_BACKEND_REPOSITORY }}:$IMAGE_TAG \
+            -t ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_BACKEND_REPOSITORY }}:latest \
+            app/backend
+
+      - name: Push Backend Image
+        run: |
+          docker push ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_BACKEND_REPOSITORY }}:$IMAGE_TAG
+          docker push ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_BACKEND_REPOSITORY }}:latest
+
+      - name: Build Frontend Image
+        run: |
+          docker build \
+            -t ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_FRONTEND_REPOSITORY }}:$IMAGE_TAG \
+            -t ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_FRONTEND_REPOSITORY }}:latest \
+            app/frontend
+
+      - name: Push Frontend Image
+        run: |
+          docker push ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_FRONTEND_REPOSITORY }}:$IMAGE_TAG
+          docker push ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_FRONTEND_REPOSITORY }}:latest
