@@ -46,3 +46,6 @@ docker-compose.override.yml
 __pycache__/
 *.pyco
 
+
+# Allow the safe environment template to be committed
+!deploy/.env.example
