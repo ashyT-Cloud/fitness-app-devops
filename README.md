@@ -12,6 +12,15 @@ FitTrack is a containerized three-tier fitness application built to demonstrate 
 
 The project covers application containerization, reverse proxy configuration, environment-based configuration, database connectivity, image publishing, and automated deployment workflows.
 
+## Freelance Case Study
+
+Explore the [FitTrack Dockerization Case Study](docs/CASE-STUDY.md) for
+the deployment architecture, Docker Compose configuration, verification
+results, and Dockerization and troubleshooting services demonstrated by
+this personal portfolio project.
+
+---
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
