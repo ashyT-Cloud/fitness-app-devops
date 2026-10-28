@@ -62,6 +62,14 @@ Verified on October 28, 2026, in the project's EC2 environment:
 These results describe the observed test environment. They are not a claim
 of a production load test, security audit, or uptime guarantee.
 
+## Application screenshot
+
+The screenshot below shows FitTrack running with a saved workout record.
+It demonstrates the application interface and a successful create-and-display
+workflow in the test environment.
+
+![FitTrack application showing a saved workout](screenshots/fittrack-workout-demo.png)
+
 ## What this demonstrates
 
 This project demonstrates practical experience with containerizing a
